@@ -7,7 +7,7 @@ import forca3 from "../assets/forca3.png";
 import forca4 from "../assets/forca4.png";
 import forca5 from "../assets/forca5.png";
 import forca6 from "../assets/forca6.png";
-import palavrasParaSortear from "../palavras";
+import palavras from "../palavras";
 import { useState } from "react";
 const vidasDisponiveis = [forca0, forca1, forca2, forca3, forca4, forca5, forca6]
 let palavraOculta;
@@ -47,7 +47,7 @@ function SortearPalavra({ setPalavraSorteada, setPalavraEscolhida }) {
     return (
         <>
             <button data-test="choose-word" onClick={() => {
-                const palavraAleatoria = palavrasParaSortear[Math.floor(Math.random() * palavrasParaSortear.length)]
+                const palavraAleatoria = palavras[Math.floor(Math.random() * palavras.length)]
                 palavraOculta = palavraAleatoria.split('')
                 setPalavraSorteada(palavraOculta)
                 setPalavraEscolhida(true)
