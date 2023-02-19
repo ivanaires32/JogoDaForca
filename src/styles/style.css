@@ -23,7 +23,14 @@
     height: 466.67px;
 }
 
-.inicio .palavraForca button {
+
+.palavraForca {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.palavraForca button {
     margin-top: 30px;
     width: 200px;
     height: 60px;
@@ -48,10 +55,18 @@
     margin: 5.5px 6px;
     width: 40px;
     height: 40px;
-    background: #9FAAB5;
-    border: 1px solid #7AA7C7;
     border-radius: 3px;
     display: table;
+    background: #E1ECF4;
+    border: 1px solid #7AA7C7;
+    color: #39739D;
+    cursor: pointer;
+}
+
+.letrasForca button:disabled {
+    background: #9FAAB5;
+    border: 1px solid #7AA7C7;
+    color: #798A9F;
 }
 
 .letrasForca button p {
@@ -62,10 +77,22 @@
     height: 40px;
     font-weight: 700;
     font-size: 16px;
-    color: #798A9F;
 }
 
-.palavra {
+.palavraSorteada {
     display: flex;
-    align-items: center;
+    justify-content: space-between;
+}
+
+.palavraSorteada p {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.palavraSorteada .red {
+    color: red;
+}
+
+.palavraSorteada .green {
+    color: green;
 }
