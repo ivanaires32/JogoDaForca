@@ -7,7 +7,7 @@ import forca3 from "../assets/forca3.png";
 import forca4 from "../assets/forca4.png";
 import forca5 from "../assets/forca5.png";
 import forca6 from "../assets/forca6.png";
-import palavrasParaSortear from "./palavras";
+import palavrasParaSortear from "../palavras";
 import { useState } from "react";
 const vidasDisponiveis = [forca0, forca1, forca2, forca3, forca4, forca5, forca6]
 let palavraOculta;
