@@ -1,7 +1,6 @@
 import { useState } from "react"
 
 const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-let seila = 0;
 export default
 
     function Letras({ palavraEscolhida, chute, setChute, palavraOculta, setNumero, numeroForca, contador, setContador }) {
@@ -26,10 +25,9 @@ function AddLetras({ palavraEscolhida, chute, setChute, palavraOculta, setNumero
         } else if (palavraOculta.includes(letra)) {
             for (let i = 0; i < palavraOculta.length; i++) {
                 if (letra === palavraOculta[i]) {
-                    seila += 1
+                    setContador(contador + 1)
                 }
             }
-            setContador(seila)
         }
     }
 

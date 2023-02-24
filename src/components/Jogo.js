@@ -11,12 +11,14 @@ import palavras from "../palavras";
 import { useState } from "react";
 const vidasDisponiveis = [forca0, forca1, forca2, forca3, forca4, forca5, forca6]
 let palavraOculta;
+let tamanhoDaPalavra
 export default function Jogo() {
     const [palavraSorteada, setPalavraSorteada] = useState([])
     const [palavraEscolhida, setPalavraEscolhida] = useState(false)
     const [chute, setChute] = useState([])
     const [numeroForca, setNumero] = useState(0)
     const [contador, setContador] = useState(0)
+    const [disabled, setDisabled] = useState(false)
     return (
         <>
             <div className="container">
@@ -24,7 +26,9 @@ export default function Jogo() {
                     <img data-test="game-image" src={vidasDisponiveis[numeroForca]} />
                     <div className="palavraForca">
                         <SortearPalavra key={palavraSorteada} setPalavraSorteada={setPalavraSorteada}
-                            setPalavraEscolhida={setPalavraEscolhida} />
+                            setPalavraEscolhida={setPalavraEscolhida}
+                            disabled={disabled} setDisabled={setDisabled} numeroForca={numeroForca}
+                            contador={contador} />
                         <div className="palavraSorteada" data-test="word">
                             {palavraSorteada.map((l, i) =>
                                 <Underline chute={chute} oculta={l} numeroForca={numeroForca} palavraSorteada={palavraSorteada}
@@ -43,20 +47,30 @@ export default function Jogo() {
     )
 }
 
-function SortearPalavra({ setPalavraSorteada, setPalavraEscolhida }) {
+function SortearPalavra({ setPalavraSorteada, setPalavraEscolhida, disabled, setDisabled, numeroForca, contador }) {
+    if (numeroForca === 6 || contador === tamanhoDaPalavra) {
+        setDisabled(false)
+    }
+
     return (
         <>
-            <button data-test="choose-word" onClick={() => {
-                const palavraAleatoria = palavras[Math.floor(Math.random() * palavras.length)]
-                palavraOculta = palavraAleatoria.split('')
-                setPalavraSorteada(palavraOculta)
-                setPalavraEscolhida(true)
+            <button data-test="choose-word" disabled={disabled} onClick={() => {
+                if (numeroForca === 6 || contador === tamanhoDaPalavra) {
+                    window.location.reload(true)
+                } else {
+                    const palavraAleatoria = palavras[Math.floor(Math.random() * palavras.length)]
+                    palavraOculta = palavraAleatoria.split('')
+                    console.log(palavraOculta)
+                    setPalavraSorteada(palavraOculta)
+                    setPalavraEscolhida(true)
+                    setDisabled("disabled")
+                    tamanhoDaPalavra = palavraOculta.length
+                }
+
             }
             }>Escolher Palavra</button>
         </>
     )
 }
-
-
 
 
