@@ -25,7 +25,7 @@ export default function Jogo() {
                     <div className="palavraForca">
                         <SortearPalavra key={palavraSorteada} setPalavraSorteada={setPalavraSorteada}
                             setPalavraEscolhida={setPalavraEscolhida} />
-                        <div className="palavraSorteada">
+                        <div className="palavraSorteada" data-test="word">
                             {palavraSorteada.map((l, i) =>
                                 <Underline chute={chute} oculta={l} numeroForca={numeroForca} palavraSorteada={palavraSorteada}
                                     index={i} contador={contador}
