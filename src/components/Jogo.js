@@ -35,7 +35,7 @@ export default function Jogo() {
                             contador={contador} />
                         <div className="palavraSorteada" data-test="word">
                             {palavraSorteada.map((l) =>
-                                <Underline palavraEscolhida={palavraEscolhida} chute={chute} oculta={l} numeroForca={numeroForca} palavraSorteada={palavraSorteada}
+                                <Underline chute={chute} oculta={l} numeroForca={numeroForca} palavraSorteada={palavraSorteada}
                                     contador={contador}
                                 />)}
                         </div>
@@ -43,7 +43,7 @@ export default function Jogo() {
                 </div>
 
                 <Letras
-                    chute={chute} setChute={setChute} palavraOculta={palavraOculta}
+                    palavraEscolhida={palavraEscolhida} chute={chute} setChute={setChute} palavraOculta={palavraOculta}
                     setNumero={setNumero} numeroForca={numeroForca} disabled={disabled}
                     contador={contador} setContador={setContador} />
 
