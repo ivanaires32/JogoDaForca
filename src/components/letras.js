@@ -1,21 +1,22 @@
-import { useState } from "react"
 
 const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 export default
 
-    function Letras({ palavraEscolhida, chute, setChute, palavraOculta, setNumero, numeroForca, contador, setContador }) {
+    function Letras({ chute, setChute,
+        palavraOculta, setNumero, numeroForca, contador, disabled, setContador }) {
 
     return (
         <div className="letrasForca">
             <AddLetras
-                palavraEscolhida={palavraEscolhida} chute={chute} setChute={setChute}
-                palavraOculta={palavraOculta} setNumero={setNumero} numeroForca={numeroForca} contador={contador} setContador={setContador} />
+                chute={chute} setChute={setChute}
+                palavraOculta={palavraOculta} disabled={disabled}
+                setNumero={setNumero} numeroForca={numeroForca} contador={contador} setContador={setContador} />
         </div>
     )
 }
 
 
-function AddLetras({ palavraEscolhida, chute, setChute, palavraOculta, setNumero, numeroForca, contador, setContador }) {
+function AddLetras({ chute, setChute, palavraOculta, setNumero, numeroForca, contador, setContador, disabled }) {
 
     function tentativas(letra) {
         const letrasJaUsadas = [...chute, letra]
@@ -35,7 +36,7 @@ function AddLetras({ palavraEscolhida, chute, setChute, palavraOculta, setNumero
         <>
             {alfabeto.map((l) =>
                 <button data-test="letter" key={l} onClick={() => tentativas(l)}
-                    disabled={palavraEscolhida !== true || chute.includes(l) || numeroForca === 6 || contador === palavraOculta.length ? "disabled" : false}
+                    disabled={!disabled}
                 >
                     <BlocoLetra letra={l} />
                 </button>
