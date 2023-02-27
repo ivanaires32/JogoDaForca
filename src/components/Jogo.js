@@ -70,7 +70,6 @@ function SortearPalavra({ setPalavraSorteada, setPalavraEscolhida, disabled,
 
                 const palavraAleatoria = palavras[Math.floor(Math.random() * palavras.length)]
                 palavraOculta = palavraAleatoria.split('')
-                console.log(palavraOculta)
                 setPalavraSorteada(palavraOculta)
                 setPalavraEscolhida(true)
                 setDisabled("disabled")
