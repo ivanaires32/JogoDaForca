@@ -35,7 +35,7 @@ export default function Jogo() {
                             contador={contador} />
                         <div className="palavraSorteada" data-test="word">
                             {palavraSorteada.map((l) =>
-                                <Underline chute={chute} oculta={l} numeroForca={numeroForca} palavraSorteada={palavraSorteada}
+                                <Underline palavraEscolhida={palavraEscolhida} chute={chute} oculta={l} numeroForca={numeroForca} palavraSorteada={palavraSorteada}
                                     contador={contador}
                                 />)}
                         </div>
